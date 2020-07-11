@@ -9,7 +9,31 @@
   		https://www.youtube.com/watch?v=bvl4Kbe-qok
      2. Initialize remote: push and commit
 
-  		
+  	
+## Project structure
+- https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code
+- https://stackoverflow.com/questions/40902280/what-is-the-recommended-project-structure-for-spring-boot-rest-projects
+- 	
+
+## Remarks
+
+- **enum**    
+   (javabook p. 429 / 712 / 617)
+    
+- **equals()**  
+
+- **hashCode()**
+
+- **toString()**    
+    (javabook p.483)
+
+- **List<>**    
+     (javabook p.980)
+- **Array.asList(...)**       
+    (javabook p.990)
+
+- **for (x : y)** 
+    (javabook p.279)
 
 ## Chapter 1
 ### Controller
@@ -21,3 +45,11 @@
 Bug in test for HomeController ...`import org.junit.Test` could not be resolved:    
 
 - https://stackoverflow.com/questions/61498856/tests-annotated-with-org-junit-test-are-not-recognized
+
+## Chapter 2
+Lombock installation Problems:
+1. Download lombok.jar
+1. sudo java -jar lombok.jar
+1. manually set eclipse path: /snap/eclipse/48/
+
+Still not working!!
