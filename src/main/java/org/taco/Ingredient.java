@@ -24,7 +24,14 @@ public class Ingredient {
 	
 	@Override
 	public String toString() {
-		return super.toString() + String.format(" (OZ) Id: %s; Name: %s", this.id, getClass());
+		return super.toString() + String.format(" (OZ) Id: %s; Name: %s", this.name, getClass());
 	}
+
+	public Type getType() {
+		return this.type;
+	}
+
+
+	
 }
 
