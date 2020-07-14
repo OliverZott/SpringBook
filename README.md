@@ -32,8 +32,12 @@
 - **Array.asList(...)**       
     (javabook p.990)
 
-- **for (x : y)** 
+- **for (x : y)**    
     (javabook p.279)
+    
+- **Streams, .filter**    
+    (javabook p.1009)    
+    https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
 
 ## Chapter 1
 ### Controller
@@ -51,5 +55,11 @@ Lombock installation Problems:
 1. Download lombok.jar
 1. sudo java -jar lombok.jar
 1. manually set eclipse path: /snap/eclipse/48/
+Still not working!
 
-Still not working!!
+
+**Remarks**
+- Model - View
+- **Model** - **View-Bibliothek**
+- **Request Mapping** / **GetMapping**
+- Beans
