@@ -44,13 +44,17 @@ public class DesignTacoController {
 				new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
 				);
 		
-		Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
+		Ingredient.Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
 		
+		
+		// completely unnecessary function... could easily extract enum-types without stupid stream-filter ?!?!?!?!
 		for (Type type : types) {
 			  model.addAttribute(type.toString().toLowerCase(),
 			      filterByType(ingredients, type));
 			}
+		
 		model.addAttribute("design", new Taco());
+		
 		return "design";
 	}
 	
