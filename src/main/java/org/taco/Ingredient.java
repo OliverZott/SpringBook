@@ -31,7 +31,14 @@ public class Ingredient {
 		return this.type;
 	}
 
+	public String getId() {
+		return id;
+	}
 
+	public String getName() {
+		return name;
+	}
+	
 	
 }
 
