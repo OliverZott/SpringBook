@@ -34,6 +34,7 @@ public class DesignTacoController {
 		List<Ingredient> ingredients = Arrays.asList(		// Creating List from array of ingredients
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
+				new Ingredient("test", "test", Type.WRAP),
 				new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
 				new Ingredient("CARN", "Carnitas", Type.PROTEIN),
 				new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
@@ -45,12 +46,15 @@ public class DesignTacoController {
 				);
 		
 		Ingredient.Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
+		System.out.println(types);
 		
-		
-		// completely unnecessary function... could easily extract enum-types without stupid stream-filter ?!?!?!?!
+		// checks what "types" appear in "ingredients" list, to render only corresponding in html
+		// so e.g. "wrap" is associated with a collection of wrap-type ingredients
 		for (Type type : types) {
-			  model.addAttribute(type.toString().toLowerCase(),
-			      filterByType(ingredients, type));
+			  model.addAttribute(
+					  type.toString().toLowerCase(),
+					  filterByType(ingredients, type)
+					  );
 			}
 		
 		model.addAttribute("design", new Taco());
@@ -59,9 +63,6 @@ public class DesignTacoController {
 	}
 	
 	
-	/*
-	 * Why filter list for ingredient types? 
-	 */
 	private static List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
 	    return ingredients
 	              .stream()		// create stream from Object-List 

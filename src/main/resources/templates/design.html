@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
+      
 <head>
-<meta charset="UTF-8">
-<title>Taco-Cloud design page</title>
+	<meta charset="UTF-8">
+	<title>Taco-Cloud design page</title>
+	<link rel="stylesheet" th:href="@{/styles.css}" /> 			<!-- link to style-sheet -->
 </head>
+
 <body>
-	<h1>DESIGN</h1>
+	<h1>Design your taco!</h1>
+	<img th:src="@{/images/TacoCloud.jpeg}"  width="600"/>
+	
+	<form method="POST" th:object="${design}">
+	<div class="grid">
+	
+		<div class="ingredient-group" id="wraps">
+		<h3>Designate your wrap</h3>
+		<div th:each="ingr : ${wrap}">													<!-- th:each -->
+			<input name="ingredients" type="checkbox" th:value="${ingr.id}"/>
+			<span th:text="${ingr.name}">INGREDIENT</span><br/>
+		</div>
+		</div>
+		
+		<div class="ingredient-group" id="cheese">
+		<h3>Choose your cheese</h3>
+		<div th:each="ingred : ${cheese}">
+			<input name="ingredients" type="checkbox" th:value="${ingred.id}"/>
+			<span th:text="${ingred.name}"></span><br/>
+		</div>
+		</div>
+		
+		<div class="ingredient-group" id="protein">
+		<h3>Choose your meat</h3>
+		<div th:each="ingredient: ${protein} ">
+			<input name="ingredients" type="checkbox" th:value="${proteiin}"/>
+			<span th:text="${ingredient.name}"></span><br/>
+		</div>
+		</div>
+		
+		<div class="ingredient-group" id="veggies">
+		<h3>Determine you veggies:</h3>
+		<div th:each="ingredient: ${veggies}">
+			<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+			<span th:text="${ingredient.name}">INGREDIENT</span>
+		</div>
+		</div>
+		
+		<div class="ingredient-group" id="sauces">
+		<h3>Select your saucee:</h3>
+		<div th:each="ingredient : ${sauce}">
+			<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+			<span th:text="${ingredient.name}">INGREDIENT</span>
+		</div>
+		</div>
+	
+	</div>
+	
+	<div>
+	<h3>Name your taco creation:</h3>
+	<input type="text" th:field="*{name}"/>			<!-- th:field ... "form" -> name "design" with object "taco" -> taco object property name-->
+	<br/>
+	
+	<button>Submit your taco</button>
+	
+	
+	</div>
+	</form>
 </body>
 </html>

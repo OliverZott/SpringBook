@@ -32,7 +32,7 @@ public class DesignControllerTest {
       .andExpect(view().name("design"))  // view-name test
       
       .andExpect(content().string(           // string-content test
-          containsString("DESIGN")));  
+          containsString("Design your taco!")));  
   }
 
 }
