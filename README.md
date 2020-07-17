@@ -59,7 +59,20 @@ Still not working!
 
 
 **Remarks**
+
 - Model - View
+
 - **Model** - **View-Bibliothek**
+
 - **Request Mapping** / **GetMapping**
+
 - Beans
+
+- **th:object**   ...line 15 design.html    
+    probably object, where form is stored
+
+- **th:each**    
+https://www.baeldung.com/thymeleaf-iteration   
+ 
+- **th:field="*{...}"**    ...line 62 in deisgn.html     
+     WTF... what does it refer to ????!?!?!
