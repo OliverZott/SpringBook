@@ -58,8 +58,8 @@ Lombock installation Problems:
 Still not working!
 
 
-**Remarks**
-
+### Remarks 
+#### General
 - Model - View
 
 - **Model** - **View-Bibliothek**
@@ -68,11 +68,16 @@ Still not working!
 
 - Beans
 
+#### Thymleaf
 - **th:object**   ...line 15 design.html    
     probably object, where form is stored
 
 - **th:each**    
 https://www.baeldung.com/thymeleaf-iteration   
  
-- **th:field="*{...}"**    ...line 62 in deisgn.html     
-     WTF... what does it refer to ????!?!?!
+- **th:field="*{...}"**    
+connects form input to taco dto name-property
+
+#### Logging
+(Java book p.930)
+- JUL: java.util.logging
