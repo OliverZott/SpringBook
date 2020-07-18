@@ -12,7 +12,7 @@
 	<h1>Design your taco!</h1>
 	<img th:src="@{/images/TacoCloud.jpeg}"  width="600"/>
 	
-	<form method="POST" th:object="${design}">
+	<form method="POST" th:object="${tacoDesign}">
 	<div class="grid">
 	
 		<div class="ingredient-group" id="wraps">
@@ -59,7 +59,8 @@
 	
 	<div>
 	<h3>Name your taco creation:</h3>
-	<input type="text" th:field="*{name}"/>			<!-- th:field ... "form" -> name "design" with object "taco" -> taco object property name-->
+	
+	<input type="text" th:field="*{tacoName}"/>		<!-- th:field -> th:object -> taco object property tacoName-->
 	<br/>
 	
 	<button>Submit your taco</button>
