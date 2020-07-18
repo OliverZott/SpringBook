@@ -1,14 +1,15 @@
-package org.taco;
+package org.taco.model;
 
 public class Taco {
-	private String namee;
+	
+	private String tacoName;
 
-	public void setName(String name) {
-		this.namee = name;
+	public void setTacoName(String name) {
+		this.tacoName = name;
 	}
 
-	public  String getName() {
-		return namee;
+	public  String getTacoName() {
+		return tacoName;
 	}
 	
 	
