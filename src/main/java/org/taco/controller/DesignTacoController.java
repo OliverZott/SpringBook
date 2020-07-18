@@ -2,24 +2,30 @@ package org.taco.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.taco.Ingredient;
-import org.taco.Taco;
-import org.taco.Ingredient.Type;
+import org.taco.model.Ingredient;
+import org.taco.model.Taco;
+import org.taco.model.Ingredient.Type;
 
 
 @Slf4j		// Creating logger
 @Controller		// annotation for component-search, which creates instance as Bean
 @RequestMapping("/design")		// specifies character of class (all request with path "/design")
 public class DesignTacoController {
+	
+	// Logger (java book p.930)
+	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
 	
 	@GetMapping
 	public static String showDesignForm(Model model) 
@@ -57,7 +63,7 @@ public class DesignTacoController {
 					  );
 			}
 		
-		model.addAttribute("design", new Taco());
+		model.addAttribute("tacoDesign", new Taco());
 		
 		return "design";
 	}
@@ -70,4 +76,12 @@ public class DesignTacoController {
 	              .collect(Collectors.toList());
 	  }
 	
+	@PostMapping
+	public  String processDesign(Taco design) {
+		// ToDo: persistence - save taco creation 
+		log.info("Processing design: " + design);
+		
+		return "redirect:/order/current";
+	}
 }
+
