@@ -26,7 +26,7 @@
 		<div class="ingredient-group" id="cheese">
 		<h3>Choose your cheese</h3>
 		<div th:each="ingred : ${cheese}">
-			<input name="ingredients" type="checkbox" th:value="${ingred.id}"/>
+			<input name="tacoIngredients" type="checkbox" th:value="${ingred.id}"/>
 			<span th:text="${ingred.name}"></span><br/>
 		</div>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="ingredient-group" id="protein">
 		<h3>Choose your meat</h3>
 		<div th:each="ingredient: ${protein} ">
-			<input name="ingredients" type="checkbox" th:value="${proteiin}"/>
+			<input name="ingredients" type="checkbox" th:value="${proteiin}"/>    <!-- ERROR "proteiin" -->
 			<span th:text="${ingredient.name}"></span><br/>
 		</div>
 		</div>

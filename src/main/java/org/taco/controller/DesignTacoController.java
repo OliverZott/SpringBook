@@ -29,14 +29,12 @@ public class DesignTacoController {
 	
 	@GetMapping
 	public static String showDesignForm(Model model) 
-	{
-		
+	{	
 		/*
-		 *If creating List without Array.asList method: 
-		List<Ingredient> ingredients0 = new ArrayList<Ingredient>();
-		ingredients0.add(new Ingredient("FLTO", "test", Type.WRAP));
-		*/
-		
+		 * If creating List without Array.asList method: 
+		 * List<Ingredient> ingredients0 = new ArrayList<Ingredient>()
+		 * ingredients0.add(new Ingredient("FLTO", "test", Type.WRAP));
+		 */
 		List<Ingredient> ingredients = Arrays.asList(		// Creating List from array of ingredients
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
@@ -77,11 +75,11 @@ public class DesignTacoController {
 	  }
 	
 	@PostMapping
-	public  String processDesign(Taco design) {
+	public  String processDesign(Taco design) {			// error cause not "tacoDesign"
 		// ToDo: persistence - save taco creation 
-		log.info("Processing design: " + design);
+		log.info("PPPPPPPPPPPPPPPPPPPPPPPProcessing design: " + design);
 		
-		return "redirect:/order/current";
+		return "redirect:orders/current";				// "redirect:" .. whats for????
 	}
 }
 

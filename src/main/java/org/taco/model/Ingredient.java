@@ -3,7 +3,7 @@ package org.taco.model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@Data		// implements missing methods, eg constructor (takes all final properties)
+@Data		// implements missing methods, e.g. constructor (takes all final properties)
 @RequiredArgsConstructor		// not necessary (due to @Data) but no harm to inlcude as well
 public class Ingredient {
 	
