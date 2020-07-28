@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.validation.Errors; 
-
 import org.taco.model.Order;
 
 
@@ -28,10 +26,10 @@ public class OrderController {
 	}
 	
 
-	@PostMapping //("/orders")
+	@PostMapping 		//("/orders")
 	public String processOrder(Order order) {
 		log.info("Order submitted: " + order.toString());
-		return "redicrect:/";
+		return "redirect:/";
 	}
 	
 }

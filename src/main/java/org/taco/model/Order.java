@@ -1,7 +1,5 @@
 package org.taco.model;
 
-import lombok.ToString;
-
 public class Order {
 	
 	private String name;

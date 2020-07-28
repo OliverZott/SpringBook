@@ -27,6 +27,7 @@ public class DesignTacoController {
 	// Logger (java book p.930)
 	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
 	
+	
 	@GetMapping
 	public static String showDesignForm(Model model) 
 	{	
@@ -74,12 +75,13 @@ public class DesignTacoController {
 	              .collect(Collectors.toList());
 	  }
 	
+	
 	@PostMapping
-	public  String processDesign(Taco design) {			// error cause not "tacoDesign"
+	public  String processDesign(Taco design) {			// error cause not "tacoDesign" ???
 		// ToDo: persistence - save taco creation 
 		log.info("PPPPPPPPPPPPPPPPPPPPPPPProcessing design: " + design);
 		
-		return "redirect:orders/current";				// "redirect:" .. whats for????
+		return "redirect:orders/current";				// "redirect:" to forward user to new page
 	}
 }
 
