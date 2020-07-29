@@ -81,3 +81,23 @@ connects form input to taco dto name-property
 #### Logging
 (Java book p.930)
 - JUL: java.util.logging
+
+#### Validations
+
+**Problem**: Needed to add to **pom.xml**:
+
+**Solution**: `https://www.baeldung.com/javax-validation`
+
+```
+<dependency>
+<groupId>javax.validation</groupId>
+<artifactId>validation-api</artifactId>
+</dependency>
+```
+
+- @NotNull
+- @Size(min=..., message="...")
+- @NotBlank
+
+
+
