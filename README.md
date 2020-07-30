@@ -13,7 +13,9 @@
 ## Project structure
 - https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code
 - https://stackoverflow.com/questions/40902280/what-is-the-recommended-project-structure-for-spring-boot-rest-projects
-- 	
+
+## TODO
+- Add missing unit testst
 
 ## Remarks
 
@@ -57,9 +59,7 @@ Lombock installation Problems:
 1. manually set eclipse path: /snap/eclipse/48/
 Still not working!
 
-
-### Remarks 
-#### General
+### General
 - Model - View
 
 - **Model** - **View-Bibliothek**
@@ -68,7 +68,11 @@ Still not working!
 
 - Beans
 
-#### Thymleaf
+### Thymleaf
+
+https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html    
+https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html
+
 - **th:object**   ...line 15 design.html    
     probably object, where form is stored
 
@@ -78,11 +82,11 @@ https://www.baeldung.com/thymeleaf-iteration
 - **th:field="*{...}"**    
 connects form input to taco dto name-property
 
-#### Logging
+### Logging
 (Java book p.930)
 - JUL: java.util.logging
 
-#### Validations
+### Validations
 
 **Problem**: Needed to add to **pom.xml**:
 
@@ -95,9 +99,17 @@ connects form input to taco dto name-property
 </dependency>
 ```
 
+**Problem**: Error Message now shown, instead: `Whitelabel Error Page`
+
+**Solution**: `http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html`
+
+
 - @NotNull
 - @Size(min=..., message="...")
 - @NotBlank
+- @Pattern
+- @Digits
+- @CreditCardNumber (**Hibernate**)
 
 
 
