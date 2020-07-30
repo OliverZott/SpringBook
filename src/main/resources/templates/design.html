@@ -12,9 +12,16 @@
 	<h1>Design your taco!</h1>
 	<img th:src="@{/images/TacoCloud.jpeg}"  width="600"/>
 	
-	<form method="POST" th:object="${tacoDesign}">
-	<div class="grid">
+	<form method="POST" th:object="${taco}">
 	
+	<span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">Ingredient Error</span>
+	
+	
+	
+	
+	<div class="grid">
 		<div class="ingredient-group" id="wraps">
 		<h3>Designate your wrap</h3>
 		<div th:each="ingr : ${wrap}">													<!-- th:each -->
@@ -34,7 +41,7 @@
 		<div class="ingredient-group" id="protein">
 		<h3>Choose your meat</h3>
 		<div th:each="ingredient: ${protein} ">
-			<input name="ingredients" type="checkbox" th:value="${proteiin}"/>    <!-- ERROR "proteiin" -->
+			<input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>    <!-- ERROR "proteiin" -->
 			<span th:text="${ingredient.name}"></span><br/>
 		</div>
 		</div>
@@ -61,6 +68,10 @@
 	<h3>Name your taco creation:</h3>
 	
 	<input type="text" th:field="*{tacoName}"/>		<!-- th:field -> th:object -> taco object property tacoName-->
+    <span th:text="${#fields.hasErrors('tacoName')}">XXX</span>
+    <span class="validationError"
+     	th:if="${#fields.hasErrors('tacoName')}"
+      	th:errors="*{tacoName}">WWWTTTTFFFFFF</span>
 	<br/>
 	
 	<button>Submit your taco</button>

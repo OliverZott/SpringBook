@@ -9,9 +9,11 @@ public class Taco {
 	@NotNull
 	@Size(min=5, message="Name must be at least 5 letters long.")
 	private String tacoName;
-	@Size(min=1, message="You need to choose at least one ingredient.")
+	
+	@Size(min=2, message="You need to choose at least two ingredients!")
 	private List<String> tacoIngredients;
 
+	
 	public void setTacoName(String name) {
 		this.tacoName = name;
 	}

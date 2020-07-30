@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.ModelAttribute;
@@ -62,7 +65,7 @@ public class DesignTacoController {
 					  );
 			}
 		
-		model.addAttribute("tacoDesign", new Taco());
+		model.addAttribute("taco", new Taco());
 		
 		return "design";
 	}
@@ -77,11 +80,15 @@ public class DesignTacoController {
 	
 	
 	@PostMapping
-	public  String processDesign(Taco design) {			// error cause not "tacoDesign" ???
-		// ToDo: persistence - save taco creation 
-		log.info("PPPPPPPPPPPPPPPPPPPPPPPProcessing design: " + design);
+	public  String processDesign(@Valid Taco taco, Errors errors) {			
+		if(errors.hasErrors()) {
+			return "design";
+		}
 		
-		return "redirect:orders/current";				// "redirect:" to forward user to new page
+		// ToDo: persistence - save taco creation 
+		log.info("PPPPProcessing design: " + taco);
+		
+		return "redirect:/orders/current";				// "redirect:" to forward user to new page
 	}
 }
 
