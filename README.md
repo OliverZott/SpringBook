@@ -88,6 +88,13 @@ connects form input to taco dto name-property
 
 ### Validations
 
+- @NotNull
+- @Size(min=..., message="...")
+- @NotBlank
+- @Pattern
+- @Digits
+- @CreditCardNumber (**Hibernate**)
+
 **Problem**: Needed to add to **pom.xml**:
 
 **Solution**: `https://www.baeldung.com/javax-validation`
@@ -103,13 +110,10 @@ connects form input to taco dto name-property
 
 **Solution**: `http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html`
 
+**Problem**: Validation evualtion not working with taco design page!!!
 
-- @NotNull
-- @Size(min=..., message="...")
-- @NotBlank
-- @Pattern
-- @Digits
-- @CreditCardNumber (**Hibernate**)
+**Solution**: NONE
+
 
 
 
