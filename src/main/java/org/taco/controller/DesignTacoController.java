@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -65,9 +65,9 @@ public class DesignTacoController {
 					  );
 			}
 		
-		model.addAttribute("taco", new Taco());
+		model.addAttribute("design", new Taco());
 		
-		return "design";
+		return "design";		// refers to html template
 	}
 	
 	
@@ -80,13 +80,13 @@ public class DesignTacoController {
 	
 	
 	@PostMapping
-	public  String processDesign(@Valid Taco taco, Errors errors) {			
+	public  String processDesign(@Valid @ModelAttribute("design") Taco taco, Errors errors) {   	// Model Attribute cause... readme      	
 		if(errors.hasErrors()) {
-			return "design";
+			return "orderForm";
 		}
 		
 		// ToDo: persistence - save taco creation 
-		log.info("PPPPProcessing design: " + taco);
+		log.info("PPPPProcessing design: " + taco.toString());
 		
 		return "redirect:/orders/current";				// "redirect:" to forward user to new page
 	}

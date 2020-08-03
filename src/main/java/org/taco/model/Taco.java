@@ -11,8 +11,13 @@ public class Taco {
 	private String tacoName;
 	
 	@Size(min=2, message="You need to choose at least two ingredients!")
-	private List<String> tacoIngredients;
+	private List<String> ingredients;
 
+	
+	@Override
+	public String toString() {
+		return super.toString() + ": " + this.getClass() + "; "  + this.getTacoName() + "; " + this.getIngredients() ;
+	}
 	
 	public void setTacoName(String name) {
 		this.tacoName = name;
@@ -23,11 +28,11 @@ public class Taco {
 	}
 
 	public List<String> getIngredients() {
-		return tacoIngredients;
+		return ingredients;
 	}
 
 	public void setIngredients(List<String> ingredients) {
-		this.tacoIngredients = ingredients;
+		this.ingredients = ingredients;
 	}
 	
 	

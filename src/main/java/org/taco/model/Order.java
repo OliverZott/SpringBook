@@ -5,7 +5,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import lombok.Data;
 
+@Data
 public class Order {
 	
 	@NotBlank(message="Name is required!")
@@ -25,8 +27,8 @@ public class Order {
 	
 	@CreditCardNumber(message="Not a valid credit card number")
 	private String ccNumber;
-	
-	@Pattern(message="Must be formatted MM / YY", regexp = "^0[1-9]|1[0-2])([\\/])([1-9][0-9])")
+														   //(0[1-9]|1[0-2])([\\/])([1-9][0-9])$
+	@Pattern(message="Must be formatted MM / YY", regexp = "^(0[1-9]|1[0-2])([\\/])([1-9][0-9])")
 	private String ccExpiration;
 	
 	@Digits(message="Invalid CVV", integer=3, fraction=0)
