@@ -110,10 +110,15 @@ connects form input to taco dto name-property
 
 **Solution**: `http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html`
 
-**Problem**: Validation evualtion not working with taco design page!!!
+**Problem**: Validation evaluation not working with taco design page!!! MAASSIV Error if not enough ingredients choosen?!? WTF Fucked-up-beyond-believe bullshit useles error message!
 
 **Solution**: NONE
 
+**Testing**: https://developers.bluesnap.com/docs/test-credit-cards
 
+### View-Controller
+(p. 55)
+
+????
 
 
