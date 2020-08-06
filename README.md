@@ -9,6 +9,9 @@
   		https://www.youtube.com/watch?v=bvl4Kbe-qok
      2. Initialize remote: push and commit
 
+1. Spring Tools 4    
+	- https://spring.io/tools/    
+  	- https://stackoverflow.com/questions/31662983/how-can-i-install-the-spring-tool-suite-in-ubuntu
   	
 ## Project structure
 - https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code
@@ -122,6 +125,22 @@ connects form input to taco dto name-property
 ????
 
 ## Chapter 3
+### Add dependency
+	    <dependency>
+	    	<groupId>org.springframework.boot</groupId>
+	    	<artifactId>spring-boot-starter-jdbc</artifactId>
+	    </dependency>
+	    
+### Remarks
+- Domain Driven Design
+- Repositories
+- 	    
+### Links
+- https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories
+- https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#repositories
+- http://zetcode.com/db/jdbctemplate/
+- https://www.baeldung.com/spring-jdbc-jdbctemplate
+- https://www.baeldung.com/spring-jdbctemplate-testing
 
 
 
