@@ -1,5 +1,7 @@
 package org.taco.model;
 
+import java.util.Date;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -9,6 +11,9 @@ import lombok.Data;
 
 @Data
 public class Order {
+	
+	private Long id;
+	private Date placedAt;
 	
 	@NotBlank(message="Name is required!")
 	private String name;
@@ -34,12 +39,29 @@ public class Order {
 	@Digits(message="Invalid CVV", integer=3, fraction=0)
 	private String ccCVV;
 	
-
+	
 	@Override
 	public String toString() {
 		return super.toString() + ": " + this.getClass() + "; "  + this.getName() + "; " + this.getCity() ;
 	}
 	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getPlacedAt() {
+		return placedAt;
+	}
+
+	public void setPlacedAt(Date placedAt) {
+		this.placedAt = placedAt;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -103,6 +125,7 @@ public class Order {
 	public void setCcCVV(String ccCvv) {
 		this.ccCVV = ccCvv;
 	}
+	
 	
 }
 

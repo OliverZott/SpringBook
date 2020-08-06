@@ -1,10 +1,14 @@
 package org.taco.model;
 
+import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Taco {
+	
+	private Long id;
+	private Date placedAt;
 	
 	@NotNull
 	@Size(min=5, message="Name must be at least 5 letters long.")
@@ -19,6 +23,23 @@ public class Taco {
 		return super.toString() + ": " + this.getClass() + "; "  + this.getTacoName() + "; " + this.getIngredients() ;
 	}
 	
+		
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getPlacedAt() {
+		return placedAt;
+	}
+
+	public void setPlacedAt(Date placedAt) {
+		this.placedAt = placedAt;
+	}
+
 	public void setTacoName(String name) {
 		this.tacoName = name;
 	}
