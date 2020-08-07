@@ -17,10 +17,22 @@
 - https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code
 - https://stackoverflow.com/questions/40902280/what-is-the-recommended-project-structure-for-spring-boot-rest-projects
 
-## TODO
+## TODO / Testing
 - Add missing unit testst
 
+
+**Testing**: 
+- https://developers.bluesnap.com/docs/test-credit-cards
+- Visa / 4263982640269299 / 04/2023 / 738
+
+
 ## Remarks
+
+- **this::methodname** ...*Method Reference*  
+    - https://www.geeksforgeeks.org/double-colon-operator-in-java/ 
+    - https://stackify.com/streams-guide-java-8/
+    - *this* refers to Object, not class     
+    - p. 809 / 1009
 
 - **enum**    
    (javabook p. 429 / 712 / 617)
@@ -117,7 +129,6 @@ connects form input to taco dto name-property
 
 **Solution**: NONE
 
-**Testing**: https://developers.bluesnap.com/docs/test-credit-cards
 
 ### View-Controller
 (p. 55)
@@ -134,7 +145,11 @@ connects form input to taco dto name-property
 ### Remarks
 - Domain Driven Design
 - Repositories
-- 	    
+- **@Autowired**
+- **@Repository** 
+- jdbc.query / queryForObject
+
+
 ### Links
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#repositories
