@@ -1,9 +1,13 @@
 package org.taco.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import javax.validation.Valid;
 
@@ -45,30 +49,21 @@ public class DesignTacoController {
 	@GetMapping
 	public  String showDesignForm(Model model) 
 	{	
-		/*
-		List<Ingredient> ingredients2 = Arrays.asList(		// Creating List from array of ingredients
-				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-				new Ingredient("test", "test", Type.WRAP),
-				new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-				new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-				new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-				new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-				new Ingredient("CHED", "Cheddar", Type.CHEESE),
-				new Ingredient("JACK", "Monterry Jack", Type.CHEESE),
-				new Ingredient("SLSA", "Salsa", Type.SAUCE),
-				new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-				);
-		//*/
-		
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 		
 		Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
-		System.out.println(types);
 		
 		/*
-		 * checks what "types" appear in "ingredients" list, to render only corresponding in html
+		 * Fooling around with streams 
+		 */
+		System.out.println("PRINT: " + types);
+		Stream<Type> stream = Arrays.stream(types);
+		stream.forEach(System.out::println);
+		
+		
+		/*
+		 * checks what "types" appear in "ingredients" list, to render only corresponding in HTML
 		 * so e.g. "wrap" is associated with a collection of wrap-type ingredients
 		 */
 		for (Type type : types) {
@@ -80,7 +75,7 @@ public class DesignTacoController {
 		
 		model.addAttribute("design", new Taco());
 		
-		return "design";		// refers to html template
+		return "design";		// refers to HTML-template
 	}
 	
 	
