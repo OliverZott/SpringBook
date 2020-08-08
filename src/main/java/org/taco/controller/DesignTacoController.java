@@ -1,12 +1,13 @@
 package org.taco.controller;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -17,29 +18,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.taco.data.IngredientRepository;
+//import org.taco.data.JdbcIngredientRepository;    	// Not used ?!
 import org.taco.model.Ingredient;
 import org.taco.model.Taco;
 import org.taco.model.Ingredient.Type;
 
 
-@Slf4j		// Creating logger
-@Controller		// annotation for component-search, which creates instance as Bean
+@Slf4j							// Creating logger
+@Controller						// annotation for component-search, which creates instance as Bean
 @RequestMapping("/design")		// specifies character of class (all request with path "/design")
 public class DesignTacoController {
 	
-	// Logger (java book p.930)
+	
 	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
+	
+	private final IngredientRepository ingredientRepo;
+	
+	
+	@Autowired
+	public DesignTacoController(IngredientRepository ingredientRepo) {
+		this.ingredientRepo = ingredientRepo;	
+	}
 	
 	
 	@GetMapping
-	public static String showDesignForm(Model model) 
+	public  String showDesignForm(Model model) 
 	{	
 		/*
-		 * If creating List without Array.asList method: 
-		 * List<Ingredient> ingredients0 = new ArrayList<Ingredient>()
-		 * ingredients0.add(new Ingredient("FLTO", "test", Type.WRAP));
-		 */
-		List<Ingredient> ingredients = Arrays.asList(		// Creating List from array of ingredients
+		List<Ingredient> ingredients2 = Arrays.asList(		// Creating List from array of ingredients
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
 				new Ingredient("test", "test", Type.WRAP),
@@ -52,12 +59,18 @@ public class DesignTacoController {
 				new Ingredient("SLSA", "Salsa", Type.SAUCE),
 				new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
 				);
+		//*/
 		
-		Ingredient.Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
+		List<Ingredient> ingredients = new ArrayList<>();
+		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+		
+		Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
 		System.out.println(types);
 		
-		// checks what "types" appear in "ingredients" list, to render only corresponding in html
-		// so e.g. "wrap" is associated with a collection of wrap-type ingredients
+		/*
+		 * checks what "types" appear in "ingredients" list, to render only corresponding in html
+		 * so e.g. "wrap" is associated with a collection of wrap-type ingredients
+		 */
 		for (Type type : types) {
 			  model.addAttribute(
 					  type.toString().toLowerCase(),
