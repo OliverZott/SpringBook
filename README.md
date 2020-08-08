@@ -143,12 +143,23 @@ connects form input to taco dto name-property
 	    </dependency>
 	    
 ### Remarks
+**General**
 - Domain Driven Design
 - Repositories
+
+**Annotations / methods**
 - **@Autowired**
 - **@Repository** 
-- jdbc.query / queryForObject
+- *jdbc.query*  *queryForObject*
 
+**SQL Database**
+- *schema.sql*  *data.spl*
+- SQL Statements:    
+    - CREATE TABLE IF NOT EXITS (...NOT NULL)
+    - ALTER TABLE ...ADD FOREIGN KEY...REFERENCES
+    - DELETE FROM  
+    - DELETE FROM .. WHERE ...
+    - CREATE TABLE ... IF NOT EXISTS
 
 ### Links
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories
