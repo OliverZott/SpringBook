@@ -2,11 +2,9 @@ package org.taco.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import javax.validation.Valid;
@@ -60,7 +58,6 @@ public class DesignTacoController {
 		System.out.println("PRINT: " + types);
 		Stream<Type> stream = Arrays.stream(types);
 		stream.forEach(System.out::println);
-		
 		
 		/*
 		 * checks what "types" appear in "ingredients" list, to render only corresponding in HTML

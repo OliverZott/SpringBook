@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data		// implements missing methods, e.g. constructor (takes all final properties)
-@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to inlcude as well
+@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to include as well
 public class Ingredient {
 	
 	private final String id;
