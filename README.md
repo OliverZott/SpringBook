@@ -130,12 +130,18 @@ connects form input to taco dto name-property
 **Solution**: NONE
 
 
+
 ### View-Controller
 (p. 55)
 
 ????
 
 ## Chapter 3
+Goal:    
+- Use **Jdbc Template** from Spring
+- Insert data with *SimpleJbcInsert*
+- Declare **JPA-Repositories** with Spring Data 
+
 ### Add dependency
 	    <dependency>
 	    	<groupId>org.springframework.boot</groupId>
@@ -146,6 +152,7 @@ connects form input to taco dto name-property
 **General**
 - Domain Driven Design
 - Repositories
+- JPA / JDBC
 
 **Annotations / methods**
 - **@Autowired**
@@ -153,13 +160,17 @@ connects form input to taco dto name-property
 - *jdbc.query*  *queryForObject*
 
 **SQL Database**
-- *schema.sql*  *data.spl*
+- **schema.sql** ...for creating database-schema
+- **data.spl**	...for populating database automatically by spring
 - SQL Statements:    
     - CREATE TABLE IF NOT EXITS (...NOT NULL)
     - ALTER TABLE ...ADD FOREIGN KEY...REFERENCES
     - DELETE FROM  
     - DELETE FROM .. WHERE ...
     - CREATE TABLE ... IF NOT EXISTS
+    
+**Java / Spring-Lombok**
+- **Converter** ... see "Problems" 
 
 ### Links
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories
@@ -167,6 +178,16 @@ connects form input to taco dto name-property
 - http://zetcode.com/db/jdbctemplate/
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
 - https://www.baeldung.com/spring-jdbctemplate-testing
+
+### Problems:
+** Problem - CONVERTER ** "when private List<Ingredient> ingredients; was private List<String> ingredients; it worked, but now it must be private List<Ingredient> ingredients; because of the way it is saved in the database but it breaks at this point, how to fix it?"
+
+https://stackoverflow.com/questions/55093954/thymeleaf-failed-to-convert-property-value-of-type-java-lang-string-to-required/63328365#63328365
+
+**Solution**      
+- https://www.baeldung.com/spring-type-conversions
+- https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/convert/converter/Converter.html
+
 
 
 
