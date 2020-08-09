@@ -7,8 +7,7 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
-//import org.springframework.jdbc.core.RowMapper;		// Not used ?!
+import org.springframework.stereotype.Repository;
 
 
 /**
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author Oliver Zott
  *
  */
-@Component
+@Repository
 public class JdbcIngredientRepository implements IngredientRepository {
 
 	private  JdbcTemplate jdbc;
@@ -42,23 +41,22 @@ public class JdbcIngredientRepository implements IngredientRepository {
 				id);
 	}
 
-	private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {
-		return new Ingredient(
-				rs.getString("id"),
-				rs.getString("name"),
-				Ingredient.Type.valueOf(rs.getString("type"))
-				);
-	}
+	  private Ingredient mapRowToIngredient(ResultSet rs, int rowNum)
+		      throws SQLException {
+		    return new Ingredient(
+		        rs.getString("id"), 
+		        rs.getString("name"),
+		        Ingredient.Type.valueOf(rs.getString("type")));
+		  }
 	
-	@Override
-	public Ingredient save(Ingredient ingredient) {
-		jdbc.update(
-				"INSERT INTO Ingredient (id, name, type) values (?, ?, ?)",
-				ingredient.getId(),
-				ingredient.getName(),
-				ingredient.getType().toString()
-				);
-		return ingredient;
-	}
+	  @Override
+	  public Ingredient save(Ingredient ingredient) {
+	    jdbc.update(
+	        "insert into Ingredient (id, name, type) values (?, ?, ?)",
+	        ingredient.getId(), 
+	        ingredient.getName(),
+	        ingredient.getType().toString());
+	    return ingredient;
+	  }
 		
 }
