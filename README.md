@@ -159,7 +159,7 @@ Goal:
 - **@Repository** 
 - *jdbc.query*  *queryForObject*
 
-**SQL Database**
+**H2 / Hibernate **
 - **schema.sql** ...for creating database-schema
 - **data.spl**	...for populating database automatically by spring
 - SQL Statements:    
@@ -169,15 +169,21 @@ Goal:
     - DELETE FROM .. WHERE ...
     - CREATE TABLE ... IF NOT EXISTS
     
-**Java / Spring-Lombok**
-- **Converter** ... see "Problems" 
+**Java / Spring**
+- **Converter** ...  to convert string-to-object for change that ingredients come from database instead hardcodet; auto-registration in Spring (Boot?) (see "Problems")
 
 ### Links
+**JDBC**
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories
 - https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#repositories
 - http://zetcode.com/db/jdbctemplate/
 - https://www.baeldung.com/spring-jdbc-jdbctemplate
 - https://www.baeldung.com/spring-jdbctemplate-testing
+
+**Converter**
+- https://stackoverflow.com/questions/35025550/register-spring-converter-programmatically-in-spring-boot
+- https://github.com/spring-projects/spring-framework/issues/11081
+- https://www.baeldung.com/spring-type-conversions
 
 ### Problems:
 ** Problem - CONVERTER ** "when private List<Ingredient> ingredients; was private List<String> ingredients; it worked, but now it must be private List<Ingredient> ingredients; because of the way it is saved in the database but it breaks at this point, how to fix it?"
