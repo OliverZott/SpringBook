@@ -169,6 +169,11 @@ Goal:
     - DELETE FROM .. WHERE ...
     - CREATE TABLE ... IF NOT EXISTS
     
+**JdbcTemplate** 
+ - "query"
+ - "queryForObject"
+ - "update"
+    
 **Java / Spring**
 - **Converter** ...  to convert string-to-object for change that ingredients come from database instead hardcodet; auto-registration in Spring (Boot?) (see "Problems")
 

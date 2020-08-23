@@ -41,13 +41,17 @@ public class JdbcIngredientRepository implements IngredientRepository {
 				id);
 	}
 
-	  private Ingredient mapRowToIngredient(ResultSet rs, int rowNum)
-		      throws SQLException {
-		    return new Ingredient(
-		        rs.getString("id"), 
+
+	/*
+	 * Used as MethodReference to RowMaper-Parameter in "findAll" and "findOneById" methods 
+	 * (query / queryForObject)
+	 */
+	private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {
+		return new Ingredient(
+				rs.getString("id"), 
 		        rs.getString("name"),
 		        Ingredient.Type.valueOf(rs.getString("type")));
-		  }
+		}
 	
 	  @Override
 	  public Ingredient save(Ingredient ingredient) {
@@ -57,6 +61,6 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	        ingredient.getName(),
 	        ingredient.getType().toString());
 	    return ingredient;
-	  }
+	  }	
 		
 }
