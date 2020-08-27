@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
 /**
  * Repository for Ingredient-Model
  * 
@@ -26,7 +25,6 @@ public class JdbcIngredientRepository implements IngredientRepository {
 		this.jdbc = jdbc;
 	}
 
-	
 	@Override
 	public Iterable<Ingredient> findAll() {
 		return jdbc.query("select id, name, type from Ingredient",
@@ -40,7 +38,6 @@ public class JdbcIngredientRepository implements IngredientRepository {
 				this::mapRowToIngredient, 
 				id);
 	}
-
 
 	/*
 	 * Used as MethodReference to RowMaper-Parameter in "findAll" and "findOneById" methods 
@@ -62,5 +59,5 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	        ingredient.getType().toString());
 	    return ingredient;
 	  }	
-		
 }
+

@@ -26,23 +26,18 @@ import org.taco.model.Ingredient;
 import org.taco.model.Taco;
 import org.taco.model.Ingredient.Type;
 
-
 @Slf4j							// Creating logger
 @Controller						// annotation for component-search, which creates instance as Bean
 @RequestMapping("/design")		// specifies character of class (all request with path "/design")
 public class DesignTacoController {
 	
-	
 	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
-	
 	private final IngredientRepository ingredientRepo;
-	
 	
 	@Autowired
 	public DesignTacoController(IngredientRepository ingredientRepo) {
 		this.ingredientRepo = ingredientRepo;	
 	}
-	
 	
 	@GetMapping
 	public  String showDesignForm(Model model) 
@@ -50,7 +45,7 @@ public class DesignTacoController {
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 		
-		Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() returns array
+		Type[] types = Ingredient.Type.values();	// Create array of ingredient types. Enum-method: values() return all values present inside enum
 		
 		/*
 		 * Fooling around with streams 
@@ -85,7 +80,7 @@ public class DesignTacoController {
 	
 	
 	@PostMapping
-	public  String processDesign(@Valid @ModelAttribute("design") Taco taco, Errors errors) {   	// Model Attribute cause... readme      	
+	public  String processDesign(@Valid @ModelAttribute("design") Taco taco, Errors errors) {   	// if name not class-name "design"    	
 		if(errors.hasErrors()) {
 			return "design";
 		}
