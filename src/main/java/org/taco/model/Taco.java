@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 public class Taco {
 	
 	private Long id;
-	private Date placedAt;
+	private Date createdAt;
 	
 	@NotNull
 	@Size(min=5, message="Name must be at least 5 letters long.")
@@ -32,12 +32,12 @@ public class Taco {
 		this.id = id;
 	}
 
-	public Date getPlacedAt() {
-		return placedAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setPlacedAt(Date placedAt) {
-		this.placedAt = placedAt;
+	public void setCreatedAt(Date placedAt) {
+		this.createdAt = placedAt;
 	}
 
 	public void setTacoName(String name) {
