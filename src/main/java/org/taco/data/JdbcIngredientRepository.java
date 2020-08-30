@@ -42,6 +42,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	/*
 	 * Used as MethodReference to RowMaper-Parameter in "findAll" and "findOneById" methods 
 	 * (query / queryForObject)
+	 * For explizit rowMapper see spring-book page 67
 	 */
 	private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {
 		return new Ingredient(

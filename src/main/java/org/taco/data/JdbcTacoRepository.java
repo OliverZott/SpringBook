@@ -16,6 +16,15 @@ import org.springframework.stereotype.Repository;
 import org.taco.model.Ingredient;
 import org.taco.model.Taco;
 
+/**
+ * Class handles 
+ *  - taco insertion into "Taco" database-table  (name, creatdAt)
+ *  - tace ADN ingredient insertion into "Taco_Ingredients" database-table (id, ingredient)
+ *  
+ *  
+ * @author olli
+ *
+ */
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
 	
@@ -39,7 +48,7 @@ public class JdbcTacoRepository implements TacoRepository {
 	}
 
 	/*
-	 * Function to assign ingredients to linking-table (taco_ingredients)
+	 * Function to assign taco & ingredients to linking-table (taco_ingredients)
 	 */
 	private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
 		jdbc.update(
