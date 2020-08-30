@@ -1,5 +1,7 @@
 package org.taco.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 
 import javax.validation.constraints.Digits;
@@ -39,6 +41,16 @@ public class Order {
 	@Digits(message="Invalid CVV", integer=3, fraction=0)
 	private String ccCVV;
 	
+	
+	/*
+	 * Taco-List to save taco to Session-Attribute
+	 * 
+	 */
+	List<Taco> tacos = new ArrayList<>();
+	
+	public void addDesign(Taco saved) {
+		this.tacos.add(saved);
+	}
 	
 	@Override
 	public String toString() {
@@ -126,6 +138,4 @@ public class Order {
 		this.ccCVV = ccCvv;
 	}
 	
-	
 }
-

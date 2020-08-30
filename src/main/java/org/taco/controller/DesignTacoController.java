@@ -17,26 +17,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 
 import org.taco.data.IngredientRepository;
-//import org.taco.data.JdbcIngredientRepository;    	// Not used ?!
+import org.taco.data.TacoRepository;
 import org.taco.model.Ingredient;
-import org.taco.model.Taco;
 import org.taco.model.Ingredient.Type;
+import org.taco.model.Order;
+import org.taco.model.Taco;
 
 @Slf4j							// Creating logger
 @Controller						// annotation for component-search, which creates instance as Bean
 @RequestMapping("/design")		// specifies character of class (all request with path "/design")
+@SessionAttributes("order")
 public class DesignTacoController {
 	
 	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
 	private final IngredientRepository ingredientRepo;
+	private TacoRepository designRepo;
 	
 	@Autowired
-	public DesignTacoController(IngredientRepository ingredientRepo) {
-		this.ingredientRepo = ingredientRepo;	
+	public DesignTacoController(
+			IngredientRepository ingredientRepo,
+			TacoRepository designRepo) {
+		this.ingredientRepo = ingredientRepo;
+		this.designRepo = designRepo;
+	}
+	
+	@ModelAttribute(name = "order")
+	public Order order() {
+		return new Order();
+	}
+	
+	@ModelAttribute(name = "taco")
+	public Taco taco() {
+		return new Taco();
 	}
 	
 	@GetMapping
@@ -80,15 +97,21 @@ public class DesignTacoController {
 	
 	
 	@PostMapping
-	public  String processDesign(@Valid @ModelAttribute("design") Taco taco, Errors errors) {   	// if name not class-name "design"    	
+	public  String processDesign(
+			@Valid @ModelAttribute("design") Taco design, 	// if name not class-name "design" (e.g. "taco")
+			Errors errors,
+			@ModelAttribute Order order) {   
+		
 		if(errors.hasErrors()) {
 			return "design";
 		}
 		
 		// ToDo: persistence - save taco creation 
-		log.info("PPPPProcessing design: " + taco.toString());
+		log.info("PPPPProcessing design: " + design.toString());
+		
+		Taco saved = designRepo.save(design);
+		order.addDesign(saved);
 		
 		return "redirect:/orders/current";				// "redirect:" to forward user to new page
 	}
 }
-
