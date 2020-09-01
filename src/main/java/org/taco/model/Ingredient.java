@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data		// implements missing methods, e.g. constructor (takes all final properties)
-@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to include as well
+//@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to include as well
 public class Ingredient {
 	
 	private final String id;
@@ -18,7 +18,7 @@ public class Ingredient {
 		this.type = type;
 	}
 
-	public static enum Type {
+	public enum Type {
 		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
 	}
 	

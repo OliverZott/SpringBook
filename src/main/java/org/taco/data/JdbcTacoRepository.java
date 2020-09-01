@@ -28,7 +28,7 @@ import org.taco.model.Taco;
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
 	
-	private JdbcTemplate jdbc;
+	private final JdbcTemplate jdbc;
 	
 	@Autowired
 	public JdbcTacoRepository(JdbcTemplate jdbc) {
@@ -61,20 +61,19 @@ public class JdbcTacoRepository implements TacoRepository {
 	 * Function sets taco creation date/time and gives/retrieves tacoId from db!
 	 */
 	private long saveTacoInfo(Taco taco) {
-		taco.setCreatedAt(new Date());				// set taco creation time/date									
-		PreparedStatementCreator psc = new PreparedStatementCreatorFactory(
-				"INSERT INTO Taco (name, createdAt) VALUES (?, ?)",
-				Types.VARCHAR, Types.TIMESTAMP
-				).newPreparedStatementCreator(
-						Arrays.asList(
-								taco.getTacoName(),
-								new Timestamp(taco.getCreatedAt().getTime())		// get timestamp from creation date
-								)
-						);
-		
+		taco.setCreatedAt(new Date());
+		PreparedStatementCreatorFactory pscf = new PreparedStatementCreatorFactory(
+				"Insert into Taco(name, createdAt) values(?,?)",
+				Types.VARCHAR, Types.TIMESTAMP);
+
+		pscf.setReturnGeneratedKeys(Boolean.TRUE);
+
+		PreparedStatementCreator psc = pscf.newPreparedStatementCreator(
+				Arrays.asList(taco.getTacoName(), new Timestamp(taco.getCreatedAt().getTime())));
+
 		KeyHolder keyHolder = new GeneratedKeyHolder();
+
 		jdbc.update(psc, keyHolder);
-		
 		return keyHolder.getKey().longValue();
 	}
 

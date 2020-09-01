@@ -28,7 +28,7 @@ import org.taco.model.Ingredient.Type;
 import org.taco.model.Order;
 import org.taco.model.Taco;
 
-@Slf4j							// Creating logger
+//@Slf4j							// Creating logger
 @Controller						// annotation for component-search, which creates instance as Bean
 @RequestMapping("/design")		// specifies character of class (all request with path "/design")
 @SessionAttributes("order")
@@ -67,7 +67,7 @@ public class DesignTacoController {
 		/*
 		 * Fooling around with streams 
 		 */
-		System.out.println("PRINT: " + types);
+		System.out.println("PRINT: " + Arrays.toString(types));
 		Stream<Type> stream = Arrays.stream(types);
 		stream.forEach(System.out::println);
 		

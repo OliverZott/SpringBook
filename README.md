@@ -193,9 +193,15 @@ Goal:
 - https://www.baeldung.com/spring-type-conversions
 
 ### Problems:
-** Problem - CONVERTER ** "when private List<Ingredient> ingredients; was private List<String> ingredients; it worked, but now it must be private List<Ingredient> ingredients; because of the way it is saved in the database but it breaks at this point, how to fix it?"
-
+**CONVERTER**   
+..."when private List<Ingredient> ingredients; was private List<String> ingredients; it worked, 
+but now it must be private List<Ingredient> ingredients; because of the way it is saved in the database 
+but it breaks at this point, how to fix it?"
 https://stackoverflow.com/questions/55093954/thymeleaf-failed-to-convert-property-value-of-type-java-lang-string-to-required/63328365#63328365
+
+**Keyholder - NullPointerException**  
+https://github.com/habuma/spring-in-action-5-samples/issues/40# 
+http://mkaroune.e-monsite.com/pages/keyholder-getkey-return-null.html 
 
 **Solution**      
 - https://www.baeldung.com/spring-type-conversions
