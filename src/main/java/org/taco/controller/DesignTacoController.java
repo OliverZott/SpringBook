@@ -36,7 +36,7 @@ public class DesignTacoController {
 	
 	private static final Logger log = Logger.getLogger(DesignTacoController.class.getName());
 	private final IngredientRepository ingredientRepo;
-	private TacoRepository designRepo;
+	private final TacoRepository designRepo;
 	
 	@Autowired
 	public DesignTacoController(

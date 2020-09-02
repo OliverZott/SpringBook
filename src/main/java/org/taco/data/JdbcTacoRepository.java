@@ -18,13 +18,14 @@ import org.taco.model.Taco;
 
 /**
  * Class handles 
- *  - taco insertion into "Taco" database-table  (name, creatdAt)
- *  - tace ADN ingredient insertion into "Taco_Ingredients" database-table (id, ingredient)
+ *  - taco insertion into "Taco" database-table  (name, createdAt)
+ *  - taco ADN ingredient insertion into "Taco_Ingredients" database-table (id, ingredient)
  *  
  *  
  * @author olli
  *
  */
+@SuppressWarnings("SpellCheckingInspection")
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
 	
