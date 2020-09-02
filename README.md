@@ -148,6 +148,12 @@ Goal:
 	    	<artifactId>spring-boot-starter-jdbc</artifactId>
 	    </dependency>
 	    
+### H2 Database
+https://howtodoinjava.com/spring-boot2/h2-database-example/
+- `http://localhost:8080/h2-console/`
+- URL: `jdbc:h2:mem:testdb`
+
+
 ### Remarks
 **General**
 - Domain Driven Design
