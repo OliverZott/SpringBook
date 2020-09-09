@@ -149,7 +149,9 @@ Goal:
 	    </dependency>
 	    
 ### H2 Database
-https://howtodoinjava.com/spring-boot2/h2-database-example/
+https://www.youtube.com/watch?v=8QBJMxyXIqc
+https://howtodoinjava.com/spring-boot2/h2-database-example/   
+https://www.youtube.com/watch?v=8QBJMxyXIqc
 - `http://localhost:8080/h2-console/`
 - URL: `jdbc:h2:mem:testdb`
 

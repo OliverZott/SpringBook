@@ -22,7 +22,7 @@ public class Order {
 	
 	@NotBlank(message="Street is required!")
 	private String street;
-	
+
 	@NotBlank(message="City is required!")
 	private String city;
 	
@@ -50,6 +50,10 @@ public class Order {
 	
 	public void addDesign(Taco saved) {
 		this.tacos.add(saved);
+	}
+
+	public List<Taco> getTacos() {
+		return this.tacos;
 	}
 	
 	@Override
