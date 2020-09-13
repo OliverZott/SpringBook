@@ -48,12 +48,12 @@ public class Order {
 	 */
 	List<Taco> tacos = new ArrayList<>();
 	
-	public void addDesign(Taco saved) {
-		this.tacos.add(saved);
+	public void addDesign(Taco design) {
+		this.tacos.add(design);
 	}
 
 	public List<Taco> getTacos() {
-		return this.tacos;
+		return this.tacos;	
 	}
 	
 	@Override

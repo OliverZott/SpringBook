@@ -4,6 +4,6 @@ import org.taco.model.Taco;
 
 public interface TacoRepository {
 	
-	Taco save(Taco dsign);
+	Taco save(Taco design);
 
 }

@@ -1,5 +1,6 @@
 # Spring Book - Example 
-
+BUGS: 
+https://github.com/habuma/spring-in-action-5-samples/issues/40
 ## Initializing
 
 1. Initializing spring project on **start.spring.io**  
@@ -18,7 +19,7 @@
 - https://stackoverflow.com/questions/40902280/what-is-the-recommended-project-structure-for-spring-boot-rest-projects
 
 ## TODO / Testing
-- Add missing unit testst
+- Add missing unit tests
 
 
 **Testing**: 
