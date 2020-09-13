@@ -10,7 +10,9 @@ import org.taco.model.Order;
 import org.taco.model.Taco;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Usage of SimpleJdbcInsert
@@ -53,11 +55,23 @@ public class JdbcOrderRepository implements OrderRepository {
     }
 
     private void saveTacoToOrder(Taco taco, long orderId) {
-
+        Map<String, Object> values = new HashMap<>();
+        values.put("tacoOrder", orderId);
+        values.put("taco", taco.getId());
+        orderTacoInserter.execute(values);
     }
 
-    private long saveOrderDetails(Order order) {
-    }
+    @SuppressWarnings("unchecked")
+    private long saveOrderDetails(Order order) {  // return long
+        Map<String, Object> values =
+                objectMapper.convertValue(order, Map.class);
+        values.put("placedAt", order.getPlacedAt());
 
+        long orderId =
+                orderInserter
+                        .executeAndReturnKey(values)
+                        .longValue();
+        return orderId;
+    }
 
 }
