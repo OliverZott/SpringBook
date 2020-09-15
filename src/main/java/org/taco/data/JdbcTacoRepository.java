@@ -34,7 +34,6 @@ public class JdbcTacoRepository implements TacoRepository {
 	@Autowired
 	public JdbcTacoRepository(JdbcTemplate jdbc) {
 		this.jdbc = jdbc;
-		
 	}
 
 	@Override
