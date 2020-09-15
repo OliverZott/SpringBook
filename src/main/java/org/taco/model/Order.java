@@ -44,9 +44,10 @@ public class Order {
 	
 	/*
 	 * Taco-List to save taco to Session-Attribute
+	 * "private" correct ???
 	 * 
 	 */
-	List<Taco> tacos = new ArrayList<>();
+	private List<Taco> tacos = new ArrayList<>();
 	
 	public void addDesign(Taco design) {
 		this.tacos.add(design);
