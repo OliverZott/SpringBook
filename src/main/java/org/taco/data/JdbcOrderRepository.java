@@ -22,9 +22,9 @@ import java.util.Map;
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
 
-    private SimpleJdbcInsert orderInserter;
-    private SimpleJdbcInsert orderTacoInserter;
-    private ObjectMapper objectMapper;
+    private final SimpleJdbcInsert orderInserter;
+    private final SimpleJdbcInsert orderTacoInserter;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     /*
     jdbc injected, but not assigned to property but used to construct SimpleJdbcInsert instances
@@ -37,8 +37,6 @@ public class JdbcOrderRepository implements OrderRepository {
 
         this.orderTacoInserter = new SimpleJdbcInsert(jdbc)
                 .withTableName("Taco_Order_Tacos");
-
-        this.objectMapper = new ObjectMapper();
     }
 
     @Override
@@ -61,10 +59,13 @@ public class JdbcOrderRepository implements OrderRepository {
         orderTacoInserter.execute(values);
     }
 
+    /*
+    ObjectMapper converts Object to Map
+     */
     @SuppressWarnings("unchecked")
     private long saveOrderDetails(Order order) {  // return long
         Map<String, Object> values =
-                objectMapper.convertValue(order, Map.class);
+                objectMapper.convertValue(order, Map.class);        // WTF?? what is order converted to ?
         values.put("placedAt", order.getPlacedAt());
 
         long orderId =
