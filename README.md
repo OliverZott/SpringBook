@@ -24,7 +24,7 @@ https://github.com/habuma/spring-in-action-5-samples/issues/40
 
 **Testing**: 
 - https://developers.bluesnap.com/docs/test-credit-cards
-- Visa / 4263982640269299 / 04/2023 / 738
+- Visa / 4263982640269299 / 04/23 / 738
 
 
 ## Remarks
@@ -201,8 +201,8 @@ https://www.youtube.com/watch?v=8QBJMxyXIqc
 - https://github.com/spring-projects/spring-framework/issues/11081
 - https://www.baeldung.com/spring-type-conversions
 
-### Problems:
-**CONVERTER**   
+### Problems
+####CONVERTER  
 ..."when private List<Ingredient> ingredients; was private List<String> ingredients; it worked, 
 but now it must be private List<Ingredient> ingredients; because of the way it is saved in the database 
 but it breaks at this point, how to fix it?"
@@ -216,6 +216,8 @@ http://mkaroune.e-monsite.com/pages/keyholder-getkey-return-null.html
 - https://www.baeldung.com/spring-type-conversions
 - https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/convert/converter/Converter.html
 
+#### order.tacos 
+... List<Taco> property of "order" class not saved from design to order forms! So wont be stored in database!?!
 
 
 
