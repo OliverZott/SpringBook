@@ -1,9 +1,11 @@
 package org.taco.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -12,10 +14,21 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import lombok.Data;
 
 @Data
-public class Order {
-	
+@Entity
+@Table(name = "Taco_Order")
+public class Order implements Serializable {				// WTF ?
+
+	private static final long serialVersionUID = 1L;		// WTF ?
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private Date placedAt;
+
+	// Taco-List to save taco to Session-Attribute ("private" correct ???)
+	@ManyToMany(targetEntity = Taco.class)
+	private List<Taco> tacos = new ArrayList<>();
 	
 	@NotBlank(message="Name is required!")
 	private String name;
@@ -41,14 +54,7 @@ public class Order {
 	@Digits(message="Invalid CVV", integer=3, fraction=0)
 	private String ccCVV;
 	
-	
-	/*
-	 * Taco-List to save taco to Session-Attribute
-	 * "private" correct ???
-	 * 
-	 */
-	private List<Taco> tacos = new ArrayList<>();
-	
+
 	public void addDesign(Taco design) {
 		this.tacos.add(design);
 	}
@@ -61,8 +67,8 @@ public class Order {
 	public String toString() {
 		return super.toString() + ": " + this.getClass() + "; "  + this.getName() + "; " + this.getCity() ;
 	}
-	
-	
+
+
 	public Long getId() {
 		return id;
 	}
