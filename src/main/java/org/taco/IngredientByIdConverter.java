@@ -20,7 +20,9 @@ public IngredientByIdConverter(IngredientRepository ingredientRepo) {
 
 @Override
 public Ingredient convert(String id) {
-    return ingredientRepo.findOne(id);
+    // ToDo: broken with JPA-Data
+    // return ingredientRepo.findOne(id);
+    return null;
 }
 
 }
