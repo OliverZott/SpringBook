@@ -1,3 +1,4 @@
+/*
 package org.taco.data;
 
 import java.sql.Timestamp;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.taco.model.Ingredient;
 import org.taco.model.Taco;
 
+*/
 /**
  * Class handles 
  *  - taco insertion into "Taco" database-table  (name, createdAt)
@@ -24,7 +26,8 @@ import org.taco.model.Taco;
  *  
  * @author olli
  *
- */
+ *//*
+
 @SuppressWarnings("SpellCheckingInspection")
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
@@ -47,9 +50,11 @@ public class JdbcTacoRepository implements TacoRepository {
 		return taco;
 	}
 
-	/*
+	*/
+/*
 	 * Function to assign taco & ingredients to linking-table (taco_ingredients)
-	 */
+	 *//*
+
 	private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
 		jdbc.update(
 				"INSERT INTO Taco_Ingredients (taco, ingredient) VALUES (?, ?)",
@@ -57,9 +62,11 @@ public class JdbcTacoRepository implements TacoRepository {
 				ingredient.getId());
 	}
 
-	/*
+	*/
+/*
 	 * Function sets taco creation date/time and gives/retrieves tacoId from db!
-	 */
+	 *//*
+
 	private long saveTacoInfo(Taco taco) {
 		taco.setCreatedAt(new Date());
 		PreparedStatementCreatorFactory pscf = new PreparedStatementCreatorFactory(
@@ -78,3 +85,4 @@ public class JdbcTacoRepository implements TacoRepository {
 	}
 
 }
+*/

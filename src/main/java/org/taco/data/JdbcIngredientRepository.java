@@ -1,3 +1,4 @@
+/*
 package org.taco.data;
 
 import org.taco.model.Ingredient;
@@ -9,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+*/
 /**
  * Repository for Ingredient-Model
  * 
  * @author Oliver Zott
  *
- */
+ *//*
+
 @Repository
 public class JdbcIngredientRepository implements IngredientRepository {
 
@@ -39,11 +42,13 @@ public class JdbcIngredientRepository implements IngredientRepository {
 				id);
 	}
 
-	/*
+	*/
+/*
 	 * Used as MethodReference to RowMapper-Parameter in "findAll" and "findOneById" methods
 	 * (query / queryForObject)
 	 * For explicit rowMapper see spring-book page 67
-	 */
+	 *//*
+
 	private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {
 		return new Ingredient(
 				rs.getString("id"), 
@@ -62,3 +67,4 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	  }	
 }
 
+*/

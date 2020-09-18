@@ -1,3 +1,4 @@
+/*
 package org.taco.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,11 +15,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+*/
 /**
  * Usage of SimpleJdbcInsert
  * (page 77)
  *
- */
+ *//*
+
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
 
@@ -26,9 +29,11 @@ public class JdbcOrderRepository implements OrderRepository {
     private final SimpleJdbcInsert orderTacoInserter;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    /*
+    */
+/*
     jdbc injected, but not assigned to property but used to construct SimpleJdbcInsert instances
-     */
+     *//*
+
     @Autowired
     public JdbcOrderRepository(JdbcTemplate jdbc) {
         this.orderInserter = new SimpleJdbcInsert(jdbc)
@@ -59,9 +64,11 @@ public class JdbcOrderRepository implements OrderRepository {
         orderTacoInserter.execute(values);
     }
 
-    /*
+    */
+/*
     ObjectMapper converts Object to Map
-     */
+     *//*
+
     @SuppressWarnings("unchecked")
     private long saveOrderDetails(Order order) {  // return long
         Map<String, Object> values =
@@ -76,3 +83,4 @@ public class JdbcOrderRepository implements OrderRepository {
     }
 
 }
+*/
