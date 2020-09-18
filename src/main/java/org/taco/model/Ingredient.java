@@ -8,22 +8,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-@Data		// implements missing methods, e.g. constructor (takes all final properties)
-@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to include as well
+@SuppressWarnings("JpaObjectClassSignatureInspection")
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@RequiredArgsConstructor		// not necessary (due to @Data) but no harm to include as well
+@Data		// implements missing methods, e.g. constructor (takes all final properties)
 @Entity
 public class Ingredient {
 
+	// "final" necessary cause lombok-bug!
 	@Id
-	private String id;
-	private String name;
-	private Type type;
-
+	private final String id;
+	private final String name;
+	private final Type type;
 
 	public enum Type {
 		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
 	}
 
+/*
 	// JPA requires constructor without args
 	public Ingredient() {
 	}
@@ -50,7 +52,8 @@ public class Ingredient {
 	public String getName() {
 		return name;
 	}
-	
+*/
+
 	
 }
 

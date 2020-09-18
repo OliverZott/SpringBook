@@ -25,10 +25,6 @@ public class Order implements Serializable {				// WTF ?
 	private Long id;
 
 	private Date placedAt;
-
-	// Taco-List to save taco to Session-Attribute ("private" correct ???)
-	@ManyToMany(targetEntity = Taco.class)
-	private List<Taco> tacos = new ArrayList<>();
 	
 	@NotBlank(message="Name is required!")
 	private String name;
@@ -53,12 +49,23 @@ public class Order implements Serializable {				// WTF ?
 	
 	@Digits(message="Invalid CVV", integer=3, fraction=0)
 	private String ccCVV;
-	
+
+	// Taco-List to save taco to Session-Attribute ("private" correct ???)
+	@SuppressWarnings("FieldMayBeFinal")
+	@ManyToMany(targetEntity = Taco.class)
+	private List<Taco> tacos = new ArrayList<>();
 
 	public void addDesign(Taco design) {
 		this.tacos.add(design);
 	}
 
+	@PrePersist
+	void placedAt() {
+		this.placedAt = new Date();
+	}
+
+
+	/*
 	public List<Taco> getTacos() {
 		return this.tacos;	
 	}
@@ -67,8 +74,8 @@ public class Order implements Serializable {				// WTF ?
 	public String toString() {
 		return super.toString() + ": " + this.getClass() + "; "  + this.getName() + "; " + this.getCity() ;
 	}
-
-
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -147,6 +154,6 @@ public class Order implements Serializable {				// WTF ?
 
 	public void setCcCVV(String ccCvv) {
 		this.ccCVV = ccCvv;
-	}
+	}*/
 	
 }
